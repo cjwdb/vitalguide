@@ -271,12 +271,12 @@
   <div class="filter-bar">
     <div class="filter-inner">
       <span class="filter-label">Filter:</span>
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Weights</button>
-      <button class="filter-btn">Resistance</button>
-      <button class="filter-btn">Cardio</button>
-      <button class="filter-btn">Yoga</button>
-      <button class="filter-btn">Recovery</button>
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="weights">Weights</button>
+      <button class="filter-btn" data-category="resistance">Resistance</button>
+      <button class="filter-btn" data-category="cardio">Cardio</button>
+      <button class="filter-btn" data-category="yoga">Yoga</button>
+      <button class="filter-btn" data-category="recovery">Recovery</button>
     </div>
   </div>
 
@@ -291,7 +291,7 @@
       <div class="products-grid">
 
         <!-- Product 1 -->
-        <div class="product-card">
+        <div class="product-card" data-category="weights">
           <div class="product-img">🏋️</div>
           <div class="product-body">
             <span class="product-badge badge-gold">🏆 Best Investment</span>
@@ -306,7 +306,7 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card">
+        <div class="product-card" data-category="resistance">
           <div class="product-img">🟢</div>
           <div class="product-body">
             <span class="product-badge badge-green">Best Value</span>
@@ -321,7 +321,7 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card">
+        <div class="product-card" data-category="yoga">
           <div class="product-img">🧘</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Premium Yoga Mat</span>
@@ -336,7 +336,7 @@
         </div>
 
         <!-- Product 4 -->
-        <div class="product-card">
+        <div class="product-card" data-category="weights">
           <div class="product-img">🔼</div>
           <div class="product-body">
             <span class="product-badge badge-green">No-Drill Install</span>
@@ -351,7 +351,7 @@
         </div>
 
         <!-- Product 5 -->
-        <div class="product-card">
+        <div class="product-card" data-category="resistance">
           <div class="product-img">🪢</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Full Body Training</span>
@@ -366,7 +366,7 @@
         </div>
 
         <!-- Product 6 -->
-        <div class="product-card">
+        <div class="product-card" data-category="cardio">
           <div class="product-img">🎯</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Jump Rope Champion</span>
@@ -381,7 +381,7 @@
         </div>
 
         <!-- Product 7 -->
-        <div class="product-card">
+        <div class="product-card" data-category="recovery">
           <div class="product-img">💆</div>
           <div class="product-body">
             <span class="product-badge badge-green">Recovery Essential</span>
@@ -396,7 +396,7 @@
         </div>
 
         <!-- Product 8 -->
-        <div class="product-card">
+        <div class="product-card" data-category="cardio">
           <div class="product-img">📊</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Smart Tracking</span>
@@ -437,6 +437,10 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        const category = btn.dataset.category;
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+        });
       });
     });
   </script>

@@ -271,12 +271,12 @@
   <div class="filter-bar">
     <div class="filter-inner">
       <span class="filter-label">Filter:</span>
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Protein</button>
-      <button class="filter-btn">Vitamins</button>
-      <button class="filter-btn">Fish Oil</button>
-      <button class="filter-btn">Minerals</button>
-      <button class="filter-btn">Immunity</button>
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="protein">Protein</button>
+      <button class="filter-btn" data-category="vitamins">Vitamins</button>
+      <button class="filter-btn" data-category="fish-oil">Fish Oil</button>
+      <button class="filter-btn" data-category="minerals">Minerals</button>
+      <button class="filter-btn" data-category="immunity">Immunity</button>
     </div>
   </div>
 
@@ -292,7 +292,7 @@
       <div class="products-grid">
 
         <!-- Product 1 -->
-        <div class="product-card">
+        <div class="product-card" data-category="protein">
           <div class="product-img">🥛</div>
           <div class="product-body">
             <span class="product-badge badge-gold">🏆 #1 Best Seller</span>
@@ -307,7 +307,7 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card">
+        <div class="product-card" data-category="fish-oil">
           <div class="product-img">🌊</div>
           <div class="product-body">
             <span class="product-badge badge-green">Editor's Choice</span>
@@ -322,7 +322,7 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card">
+        <div class="product-card" data-category="vitamins">
           <div class="product-img">☀️</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Best Value</span>
@@ -337,7 +337,7 @@
         </div>
 
         <!-- Product 4 -->
-        <div class="product-card">
+        <div class="product-card" data-category="vitamins">
           <div class="product-img">🌿</div>
           <div class="product-body">
             <span class="product-badge badge-green">Whole Food Formula</span>
@@ -352,7 +352,7 @@
         </div>
 
         <!-- Product 5 -->
-        <div class="product-card">
+        <div class="product-card" data-category="immunity">
           <div class="product-img">🍋</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Immune Support</span>
@@ -367,7 +367,7 @@
         </div>
 
         <!-- Product 6 -->
-        <div class="product-card">
+        <div class="product-card" data-category="minerals">
           <div class="product-img">⚡</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Sleep & Calm</span>
@@ -382,7 +382,7 @@
         </div>
 
         <!-- Product 7 -->
-        <div class="product-card">
+        <div class="product-card" data-category="protein">
           <div class="product-img">🦴</div>
           <div class="product-body">
             <span class="product-badge badge-green">Joint Health</span>
@@ -397,7 +397,7 @@
         </div>
 
         <!-- Product 8 -->
-        <div class="product-card">
+        <div class="product-card" data-category="immunity">
           <div class="product-img">🧬</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Gut Health</span>
@@ -518,6 +518,10 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        const category = btn.dataset.category;
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+        });
       });
     });
   </script>

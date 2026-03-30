@@ -271,12 +271,12 @@
   <div class="filter-bar">
     <div class="filter-inner">
       <span class="filter-label">Filter:</span>
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Aromatherapy</button>
-      <button class="filter-btn">Meditation</button>
-      <button class="filter-btn">Journaling</button>
-      <button class="filter-btn">Acupressure</button>
-      <button class="filter-btn">Relaxation</button>
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="aromatherapy">Aromatherapy</button>
+      <button class="filter-btn" data-category="meditation">Meditation</button>
+      <button class="filter-btn" data-category="journaling">Journaling</button>
+      <button class="filter-btn" data-category="acupressure">Acupressure</button>
+      <button class="filter-btn" data-category="relaxation">Relaxation</button>
     </div>
   </div>
 
@@ -291,7 +291,7 @@
       <div class="products-grid">
 
         <!-- Product 1 -->
-        <div class="product-card">
+        <div class="product-card" data-category="aromatherapy">
           <div class="product-img">🕯️</div>
           <div class="product-body">
             <span class="product-badge badge-gold">🏆 Best Seller</span>
@@ -306,7 +306,7 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card">
+        <div class="product-card" data-category="journaling">
           <div class="product-img">📓</div>
           <div class="product-body">
             <span class="product-badge badge-green">Editor's Choice</span>
@@ -321,7 +321,7 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card">
+        <div class="product-card" data-category="meditation">
           <div class="product-img">🪷</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Meditation Must-Have</span>
@@ -336,7 +336,7 @@
         </div>
 
         <!-- Product 4 -->
-        <div class="product-card">
+        <div class="product-card" data-category="acupressure">
           <div class="product-img">🔵</div>
           <div class="product-body">
             <span class="product-badge badge-green">Stress Relief</span>
@@ -351,7 +351,7 @@
         </div>
 
         <!-- Product 5 -->
-        <div class="product-card">
+        <div class="product-card" data-category="aromatherapy">
           <div class="product-img">🌸</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Aromatherapy Kit</span>
@@ -366,7 +366,7 @@
         </div>
 
         <!-- Product 6 -->
-        <div class="product-card">
+        <div class="product-card" data-category="relaxation">
           <div class="product-img">🎶</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Focus & Flow</span>
@@ -381,7 +381,7 @@
         </div>
 
         <!-- Product 7 -->
-        <div class="product-card">
+        <div class="product-card" data-category="relaxation">
           <div class="product-img">🫁</div>
           <div class="product-body">
             <span class="product-badge badge-green">Breathing Tool</span>
@@ -396,7 +396,7 @@
         </div>
 
         <!-- Product 8 -->
-        <div class="product-card">
+        <div class="product-card" data-category="meditation">
           <div class="product-img">🧠</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Mindfulness Book</span>
@@ -437,6 +437,10 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        const category = btn.dataset.category;
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+        });
       });
     });
   </script>

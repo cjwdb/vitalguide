@@ -271,12 +271,12 @@
   <div class="filter-bar">
     <div class="filter-inner">
       <span class="filter-label">Filter:</span>
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Blankets</button>
-      <button class="filter-btn">Sound Machines</button>
-      <button class="filter-btn">Sleep Masks</button>
-      <button class="filter-btn">Pillows</button>
-      <button class="filter-btn">Trackers</button>
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="blankets">Blankets</button>
+      <button class="filter-btn" data-category="sound-machines">Sound Machines</button>
+      <button class="filter-btn" data-category="sleep-masks">Sleep Masks</button>
+      <button class="filter-btn" data-category="pillows">Pillows</button>
+      <button class="filter-btn" data-category="trackers">Trackers</button>
     </div>
   </div>
 
@@ -291,7 +291,7 @@
       <div class="products-grid">
 
         <!-- Product 1 -->
-        <div class="product-card">
+        <div class="product-card" data-category="blankets">
           <div class="product-img">🛋️</div>
           <div class="product-body">
             <span class="product-badge badge-gold">🏆 #1 Pick</span>
@@ -306,7 +306,7 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card">
+        <div class="product-card" data-category="sound-machines">
           <div class="product-img">🔊</div>
           <div class="product-body">
             <span class="product-badge badge-green">Editor's Choice</span>
@@ -321,7 +321,7 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card">
+        <div class="product-card" data-category="sleep-masks">
           <div class="product-img">😴</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Best Sleep Mask</span>
@@ -336,7 +336,7 @@
         </div>
 
         <!-- Product 4 -->
-        <div class="product-card">
+        <div class="product-card" data-category="pillows">
           <div class="product-img">🌿</div>
           <div class="product-body">
             <span class="product-badge badge-green">Best for Sleep</span>
@@ -351,7 +351,7 @@
         </div>
 
         <!-- Product 5 -->
-        <div class="product-card">
+        <div class="product-card" data-category="supplement">
           <div class="product-img">🌙</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Natural Sleep Aid</span>
@@ -366,7 +366,7 @@
         </div>
 
         <!-- Product 6 -->
-        <div class="product-card">
+        <div class="product-card" data-category="trackers">
           <div class="product-img">📱</div>
           <div class="product-body">
             <span class="product-badge badge-terra">Sleep Tracker</span>
@@ -381,7 +381,7 @@
         </div>
 
         <!-- Product 7 -->
-        <div class="product-card">
+        <div class="product-card" data-category="blankets">
           <div class="product-img">🌡️</div>
           <div class="product-body">
             <span class="product-badge badge-green">Temperature Control</span>
@@ -396,7 +396,7 @@
         </div>
 
         <!-- Product 8 -->
-        <div class="product-card">
+        <div class="product-card" data-category="supplement">
           <div class="product-img">💊</div>
           <div class="product-body">
             <span class="product-badge badge-gold">Magnesium for Sleep</span>
@@ -437,6 +437,10 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        const category = btn.dataset.category;
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+        });
       });
     });
   </script>
