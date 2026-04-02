@@ -327,7 +327,8 @@
       <h2>Get Weekly Wellness Tips</h2>
       <p>Join 50,000+ readers who get our weekly roundup of the best health products, deals, and evidence-based wellness advice.</p>
       <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); document.getElementById('newsletter-form').style.display='none'; document.getElementById('newsletter-success').style.display='block';">
-        <input type="email" placeholder="your@email.com" required />
+        <label for="newsletter-email" class="visually-hidden">Email address</label>
+        <input type="email" id="newsletter-email" name="email" placeholder="your@email.com" aria-label="Email address" required />
         <button type="submit" class="btn btn-primary">Subscribe</button>
       </form>
       <p id="newsletter-success" style="display:none;color:var(--marigold);font-weight:700;font-size:1.1rem;margin-top:16px;">Thanks for subscribing! Check your inbox soon. ✓</p>
