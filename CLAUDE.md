@@ -4,10 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Deployment
 
-**Deploy to production** (S3 + CloudFront):
+**ONLY the Founding Engineer agent may deploy.** All other agents: do NOT run aws s3 sync, aws cloudfront, or any deployment commands. If you need changes deployed, assign a task to the Founding Engineer.
+
+**Deploy to production** (S3 + CloudFront) — Founding Engineer only:
 ```bash
-# Upload files to S3 (always exclude .claude/)
-aws s3 sync . s3://vitalguide --delete --exclude ".claude/*" --exclude "CLAUDE.md"
+# Upload files to S3 (always exclude .claude/ and content/)
+aws s3 sync . s3://vitalguide --delete --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*"
 
 # Invalidate CloudFront cache after changes
 aws cloudfront create-invalidation --distribution-id E2Z7FA0QPJODC7 --paths "/*"
@@ -23,7 +25,7 @@ The site is live at **https://vitalguide.life** via:
 This is a **pure static HTML/CSS site** — no build system, no package manager, no framework. There is no compilation step; edit files and deploy.
 
 **Page types:**
-- **Category pages** (`/*.html`) — product listing pages for each health category (supplements, sleep, fitness, mental-wellness). Each contains a `.products-grid` of `.product-card` elements.
+- **Category pages** (`/*.html`) — long-form editorial pages for each health category (supplements, fitness, sports-nutrition, wellness, health-technology). They use `.article-layout` (main + sidebar) with `.article-content` inside, containing product sections with `.product-section` headings and `.btn-amazon` CTAs.
 - **Article pages** (`/articles/*.html`) — long-form content using `.article-layout` (main + sidebar) or `.article-content` (single column).
 
 **Shared CSS** (`styles.css`) uses CSS custom properties defined in `:root`. All pages link to this single stylesheet. Category pages link as `href="styles.css"`, article pages as `href="../styles.css"`.
@@ -40,8 +42,6 @@ This is a **pure static HTML/CSS site** — no build system, no package manager,
 
 **Product badges** use three colour variants: `.badge-gold`, `.badge-green`, `.badge-terra`.
 
-**Article structured data** (`application/ld+json`) is included on article pages. Category pages do not have it.
-
-**Filter buttons** on category pages (`.filter-btn`) are purely cosmetic — the JS only toggles the `.active` class and does not filter products.
+**Article structured data** (`application/ld+json`) is included on both category pages and article pages (both use `@type: Article` + `BreadcrumbList`).
 
 **Newsletter form** uses `onsubmit="event.preventDefault(); alert('Thanks for subscribing!');"` — there is no backend integration.
