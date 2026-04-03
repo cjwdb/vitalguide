@@ -2,6 +2,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { InfrastructureStack } from '../lib/infrastructure-stack';
 import { ArticlesStack } from '../lib/articles-stack';
+import { ApiDomainStack } from '../lib/api-domain-stack';
 
 const app = new cdk.App();
 
@@ -10,12 +11,19 @@ const env = {
   region: process.env.CDK_DEFAULT_REGION || 'us-east-1',
 };
 
-new InfrastructureStack(app, 'VitalguideProductsStack', {
+const productsStack = new InfrastructureStack(app, 'VitalguideProductsStack', {
   env,
   description: 'VitalGuide Products API — DynamoDB + Lambda + API Gateway',
 });
 
-new ArticlesStack(app, 'VitalguideArticlesStack', {
+const articlesStack = new ArticlesStack(app, 'VitalguideArticlesStack', {
   env,
   description: 'VitalGuide Articles API — DynamoDB + Lambda + API Gateway',
+});
+
+new ApiDomainStack(app, 'VitalguideApiDomainStack', {
+  env,
+  description: 'VitalGuide api.vitalguide.life — ACM cert, custom domain, Route53',
+  productsApi: productsStack.api,
+  articlesApi: articlesStack.api,
 });

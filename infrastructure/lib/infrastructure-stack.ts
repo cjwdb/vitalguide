@@ -6,6 +6,8 @@ import * as apigw from 'aws-cdk-lib/aws-apigateway';
 import * as path from 'path';
 
 export class InfrastructureStack extends cdk.Stack {
+  public readonly api: apigw.RestApi;
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -85,7 +87,7 @@ export class InfrastructureStack extends cdk.Stack {
     );
 
     // API Gateway REST API
-    const api = new apigw.RestApi(this, 'VitalguideProductsApi', {
+    this.api = new apigw.RestApi(this, 'VitalguideProductsApi', {
       restApiName: 'vitalguide-products-api',
       description: 'VitalGuide Products API',
       deployOptions: {
@@ -99,7 +101,7 @@ export class InfrastructureStack extends cdk.Stack {
     });
 
     // /products
-    const products = api.root.addResource('products');
+    const products = this.api.root.addResource('products');
     products.addMethod('GET', new apigw.LambdaIntegration(listFn));
     products.addMethod('POST', new apigw.LambdaIntegration(postFn));
 
@@ -112,11 +114,11 @@ export class InfrastructureStack extends cdk.Stack {
 
     // Outputs
     new cdk.CfnOutput(this, 'ApiUrl', {
-      value: api.url,
+      value: this.api.url,
       description: 'API Gateway base URL',
     });
     new cdk.CfnOutput(this, 'ProductsEndpoint', {
-      value: `${api.url}products`,
+      value: `${this.api.url}products`,
       description: 'Products endpoint (map api.vitalguide.life to this)',
     });
     new cdk.CfnOutput(this, 'TableName', {
