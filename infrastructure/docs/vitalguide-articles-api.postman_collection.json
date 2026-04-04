@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "VitalGuide Articles API",
+    "_postman_id": "vitalguide-articles-api",
+    "description": "CRUD endpoints for the vitalguide_articles DynamoDB table.\n\nBase URL: https://api.vitalguide.life\n\nAuthentication: HTTP Basic Auth. Set the `username` and `password` collection variables.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.vitalguide.life",
+      "type": "string"
+    },
+    {
+      "key": "username",
+      "value": "admin",
+      "type": "string"
+    },
+    {
+      "key": "password",
+      "value": "changeme",
+      "type": "string"
+    },
+    {
+      "key": "articleId",
+      "value": "",
+      "type": "string",
+      "description": "Set this after creating an article"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{username}}", "type": "string" },
+      { "key": "password", "value": "{{password}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Create Article",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 201) {",
+              "    const body = pm.response.json();",
+              "    pm.collectionVariables.set('articleId', body.id);",
+              "    pm.test('Article created', () => pm.expect(body.id).to.be.a('string'));",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"10 Best Supplements for Energy\",\n  \"sub_title\": \"Science-backed picks for 2024\",\n  \"summary\": \"A comprehensive review of the top energy-boosting supplements.\",\n  \"body\": \"<p>Full article body goes here...</p>\",\n  \"image_url\": \"https://example.com/images/supplements.jpg\",\n  \"categories\": [\"supplements\", \"energy\"],\n  \"date\": \"2024-01-15\",\n  \"time_to_read_in_minutes\": 8\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Article by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", "{{articleId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Article (Full Replace)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"10 Best Supplements for Energy (Updated)\",\n  \"sub_title\": \"Updated science-backed picks\",\n  \"summary\": \"Updated summary of energy-boosting supplements.\",\n  \"body\": \"<p>Updated article body...</p>\",\n  \"image_url\": \"https://example.com/images/supplements-v2.jpg\",\n  \"categories\": [\"supplements\", \"energy\", \"wellness\"],\n  \"date\": \"2024-02-01\",\n  \"time_to_read_in_minutes\": 10\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", "{{articleId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Patch Article (Partial Update)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Patched Title Only\",\n  \"categories\": [\"supplements\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", "{{articleId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Articles",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/articles?limit=20",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles"],
+          "query": [
+            { "key": "limit", "value": "20", "description": "Max items per page (default 20, max 100)" },
+            { "key": "nextToken", "value": "", "description": "Pagination cursor from previous response", "disabled": true },
+            { "key": "category", "value": "supplements", "description": "Filter by category", "disabled": true }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Articles (Filtered by Category)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/articles?category=supplements&limit=20",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles"],
+          "query": [
+            { "key": "category", "value": "supplements" },
+            { "key": "limit", "value": "20" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Article",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", "{{articleId}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
