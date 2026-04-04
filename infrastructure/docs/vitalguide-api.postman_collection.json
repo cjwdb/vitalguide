@@ -1,0 +1,390 @@
+{
+  "info": {
+    "name": "VitalGuide API",
+    "description": "Products and Articles API for api.vitalguide.life",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.vitalguide.life",
+      "type": "string"
+    },
+    {
+      "key": "basicAuth",
+      "value": "YWRtaW46Y2hhbmdlbWU=",
+      "description": "Base64 of username:password (default: admin:changeme)",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "",
+      "description": "Set this after creating a product",
+      "type": "string"
+    },
+    {
+      "key": "articleId",
+      "value": "",
+      "description": "Set this after creating an article",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["products"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Items per page (max 100)",
+                  "disabled": true
+                },
+                {
+                  "key": "nextToken",
+                  "value": "",
+                  "description": "Pagination cursor from previous response",
+                  "disabled": true
+                },
+                {
+                  "key": "category",
+                  "value": "supplements",
+                  "description": "Filter by category name",
+                  "disabled": true
+                },
+                {
+                  "key": "article_id",
+                  "value": "",
+                  "description": "Filter by related article ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Returns a paginated list of products."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if (json.id) { pm.collectionVariables.set('productId', json.id); }"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Magnesium Glycinate\",\n  \"description\": \"High-absorption magnesium supplement for improved sleep and muscle recovery.\",\n  \"affiliate_link\": \"https://example.com/buy/magnesium\",\n  \"image_url\": \"https://cdn.example.com/products/magnesium.jpg\",\n  \"categories\": [\"supplements\", \"sleep\"],\n  \"article_ids\": [],\n  \"rating\": 4.8,\n  \"reviews\": 1200,\n  \"best_rating\": 5,\n  \"worst_rating\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["products"]
+            },
+            "description": "Creates a new product. The response `id` is automatically saved to the `productId` collection variable."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "{{productId}}"]
+            },
+            "description": "Fetches a single product by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product (Full Replace)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Magnesium Glycinate (Updated)\",\n  \"description\": \"Updated description.\",\n  \"affiliate_link\": \"https://example.com/buy/magnesium-v2\",\n  \"image_url\": \"https://cdn.example.com/products/magnesium-v2.jpg\",\n  \"categories\": [\"supplements\", \"sleep\", \"recovery\"],\n  \"article_ids\": [],\n  \"rating\": 4.9,\n  \"reviews\": 1350,\n  \"best_rating\": 5,\n  \"worst_rating\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "{{productId}}"]
+            },
+            "description": "Fully replaces a product. All fields are overwritten."
+          },
+          "response": []
+        },
+        {
+          "name": "Patch Product (Partial Update)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 4.9,\n  \"reviews\": 1350\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "{{productId}}"]
+            },
+            "description": "Updates only the provided fields. Other fields remain unchanged."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "{{productId}}"]
+            },
+            "description": "Deletes a product by ID. Returns 204 No Content."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "List Articles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/articles",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Items per page (max 100)",
+                  "disabled": true
+                },
+                {
+                  "key": "nextToken",
+                  "value": "",
+                  "description": "Pagination cursor from previous response",
+                  "disabled": true
+                },
+                {
+                  "key": "category",
+                  "value": "supplements",
+                  "description": "Filter by category name",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Returns a paginated list of articles."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Article",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if (json.id) { pm.collectionVariables.set('articleId', json.id); }"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Best Magnesium Supplements for Sleep\",\n  \"sub_title\": \"A science-backed guide to the top magnesium forms\",\n  \"summary\": \"We reviewed 12 products to find the best magnesium supplements for improving sleep quality.\",\n  \"body\": \"<p>Magnesium is an essential mineral that plays a role in over 300 enzymatic reactions...</p>\",\n  \"image_url\": \"https://cdn.example.com/articles/magnesium-sleep.jpg\",\n  \"categories\": [\"supplements\", \"sleep\"],\n  \"date\": \"2026-04-01\",\n  \"time_to_read_in_minutes\": 8\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/articles",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles"]
+            },
+            "description": "Creates a new article. The response `id` is automatically saved to the `articleId` collection variable."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Article",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/articles/{{articleId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles", "{{articleId}}"]
+            },
+            "description": "Fetches a single article by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Article (Full Replace)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Best Magnesium Supplements for Sleep (2026 Update)\",\n  \"sub_title\": \"Updated science-backed guide\",\n  \"summary\": \"Updated summary with the latest research findings.\",\n  \"body\": \"<p>Updated content here...</p>\",\n  \"image_url\": \"https://cdn.example.com/articles/magnesium-sleep-v2.jpg\",\n  \"categories\": [\"supplements\", \"sleep\", \"recovery\"],\n  \"date\": \"2026-04-04\",\n  \"time_to_read_in_minutes\": 10\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/articles/{{articleId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles", "{{articleId}}"]
+            },
+            "description": "Fully replaces an article. All fields are overwritten."
+          },
+          "response": []
+        },
+        {
+          "name": "Patch Article (Partial Update)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"time_to_read_in_minutes\": 10,\n  \"categories\": [\"supplements\", \"sleep\", \"wellness\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/articles/{{articleId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles", "{{articleId}}"]
+            },
+            "description": "Updates only the provided fields. Other fields remain unchanged."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Article",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic {{basicAuth}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/articles/{{articleId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles", "{{articleId}}"]
+            },
+            "description": "Deletes an article by ID. Returns 204 No Content."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
