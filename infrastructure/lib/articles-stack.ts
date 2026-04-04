@@ -98,17 +98,16 @@ export class ArticlesStack extends cdk.Stack {
       },
     });
 
-    // /articles
-    const articles = this.api.root.addResource('articles');
-    articles.addMethod('GET', new apigw.LambdaIntegration(listFn));
-    articles.addMethod('POST', new apigw.LambdaIntegration(postFn));
+    // / (root) — list and create
+    this.api.root.addMethod('GET', new apigw.LambdaIntegration(listFn));
+    this.api.root.addMethod('POST', new apigw.LambdaIntegration(postFn));
 
-    // /articles/{id}
-    const article = articles.addResource('{id}');
-    article.addMethod('GET', new apigw.LambdaIntegration(getFn));
-    article.addMethod('PUT', new apigw.LambdaIntegration(updateFn));
-    article.addMethod('PATCH', new apigw.LambdaIntegration(patchFn));
-    article.addMethod('DELETE', new apigw.LambdaIntegration(deleteFn));
+    // /{id} — get, update, patch, delete
+    const byId = this.api.root.addResource('{id}');
+    byId.addMethod('GET', new apigw.LambdaIntegration(getFn));
+    byId.addMethod('PUT', new apigw.LambdaIntegration(updateFn));
+    byId.addMethod('PATCH', new apigw.LambdaIntegration(patchFn));
+    byId.addMethod('DELETE', new apigw.LambdaIntegration(deleteFn));
 
     // Outputs
     new cdk.CfnOutput(this, 'ApiUrl', {
@@ -116,8 +115,8 @@ export class ArticlesStack extends cdk.Stack {
       description: 'API Gateway base URL',
     });
     new cdk.CfnOutput(this, 'ArticlesEndpoint', {
-      value: `${this.api.url}articles`,
-      description: 'Articles endpoint (map api.vitalguide.life to this)',
+      value: `${this.api.url}`,
+      description: 'Articles API base URL',
     });
     new cdk.CfnOutput(this, 'TableName', {
       value: table.tableName,

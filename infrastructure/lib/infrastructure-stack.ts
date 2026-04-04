@@ -100,17 +100,16 @@ export class InfrastructureStack extends cdk.Stack {
       },
     });
 
-    // /products
-    const products = this.api.root.addResource('products');
-    products.addMethod('GET', new apigw.LambdaIntegration(listFn));
-    products.addMethod('POST', new apigw.LambdaIntegration(postFn));
+    // / (root) — list and create
+    this.api.root.addMethod('GET', new apigw.LambdaIntegration(listFn));
+    this.api.root.addMethod('POST', new apigw.LambdaIntegration(postFn));
 
-    // /products/{id}
-    const product = products.addResource('{id}');
-    product.addMethod('GET', new apigw.LambdaIntegration(getFn));
-    product.addMethod('PUT', new apigw.LambdaIntegration(updateFn));
-    product.addMethod('PATCH', new apigw.LambdaIntegration(patchFn));
-    product.addMethod('DELETE', new apigw.LambdaIntegration(deleteFn));
+    // /{id} — get, update, patch, delete
+    const byId = this.api.root.addResource('{id}');
+    byId.addMethod('GET', new apigw.LambdaIntegration(getFn));
+    byId.addMethod('PUT', new apigw.LambdaIntegration(updateFn));
+    byId.addMethod('PATCH', new apigw.LambdaIntegration(patchFn));
+    byId.addMethod('DELETE', new apigw.LambdaIntegration(deleteFn));
 
     // Outputs
     new cdk.CfnOutput(this, 'ApiUrl', {
@@ -118,8 +117,8 @@ export class InfrastructureStack extends cdk.Stack {
       description: 'API Gateway base URL',
     });
     new cdk.CfnOutput(this, 'ProductsEndpoint', {
-      value: `${this.api.url}products`,
-      description: 'Products endpoint (map api.vitalguide.life to this)',
+      value: `${this.api.url}`,
+      description: 'Products API base URL',
     });
     new cdk.CfnOutput(this, 'TableName', {
       value: table.tableName,
