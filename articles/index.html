@@ -682,5 +682,32 @@
 </div>
 </footer>
 <script defer="" src="../analytics.js"></script>
+<script>
+(function () {
+  var filters = document.querySelectorAll('.category-filter a');
+  var posts = document.querySelectorAll('.blog-list .blog-post');
+
+  filters.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      filters.forEach(function (f) { f.classList.remove('active'); });
+      this.classList.add('active');
+
+      var categoryText = this.childNodes[0].nodeValue.trim();
+
+      posts.forEach(function (post) {
+        var tag = post.querySelector('.article-tag');
+        if (!tag) return;
+        if (categoryText === 'All Articles') {
+          post.style.display = '';
+        } else {
+          post.style.display = (tag.textContent.trim() === categoryText) ? '' : 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
