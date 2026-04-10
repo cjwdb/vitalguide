@@ -30,13 +30,13 @@ This is a **pure static HTML/CSS site** — no build system, no package manager,
 
 **Shared CSS** (`styles.css`) uses CSS custom properties defined in `:root`. All pages link to this single stylesheet. Category pages link as `href="styles.css"`, article pages as `href="../styles.css"`.
 
-**Internal links** use `.html` extensions in the source (e.g., `href="fitness.html"`). A CloudFront Function (`vitalguide-url-rewrite`) strips the extension at the CDN level so URLs like `/fitness` work publicly.
+**Internal links** do NOT use `.html` extensions (e.g., `href="fitness"` not `href="fitness.html"`). A CloudFront Function (`vitalguide-url-rewrite`) appends `.html` when fetching from S3 so URLs like `/fitness` work publicly. Home links use `href="/"`.
 
 ## Key Conventions
 
 **Amazon affiliate links** must always include `?tag=vitalguide08-20` and use `rel="nofollow sponsored"` and `target="_blank"`. The `.btn-amazon` class styles these CTA buttons.
 
-**Navigation** is duplicated in every file. When adding pages, update the `<nav>` in all existing files. Category pages link with relative paths (`href="supplements.html"`); article pages use `../` prefix (`href="../supplements.html"`).
+**Navigation** is duplicated in every file. When adding pages, update the `<nav>` in all existing files. Category pages link with relative paths (`href="supplements"`); article pages use `../` prefix (`href="../supplements"`).
 
 **Canonical URLs** in `<link rel="canonical">` still reference `vitalguide.com` (the old domain) — these should be updated to `vitalguide.life` when editing pages.
 
