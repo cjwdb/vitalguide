@@ -763,6 +763,7 @@
 (function () {
   var filters = document.querySelectorAll('.category-filter a');
   var posts = document.querySelectorAll('.blog-list .blog-post');
+  var featured = document.querySelector('.blog-featured');
 
   filters.forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -772,6 +773,13 @@
       this.classList.add('active');
 
       var categoryText = this.childNodes[0].nodeValue.trim();
+
+      if (featured) {
+        var featuredTag = featured.querySelector('.article-tag');
+        if (featuredTag) {
+          featured.style.display = (categoryText === 'All Articles' || featuredTag.textContent.trim() === categoryText) ? '' : 'none';
+        }
+      }
 
       posts.forEach(function (post) {
         var tag = post.querySelector('.article-tag');
