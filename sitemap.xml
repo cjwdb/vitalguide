@@ -79,7 +79,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/index</loc>
+    <loc>https://vitalguide.life/articles/</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -310,6 +310,36 @@
     <loc>https://vitalguide.life/articles/best-multivitamin-men</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/beta-alanine-performance</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/breathwork-anxiety</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/chronotype-sleep-optimization</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/oura-vs-whoop-comparison</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/rucking-benefits</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
