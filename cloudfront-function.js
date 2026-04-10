@@ -15,6 +15,18 @@ function handler(event) {
     var request = event.request;
     var uri = request.uri;
 
+    // 301-redirect www to non-www
+    var host = request.headers && request.headers.host && request.headers.host.value;
+    if (host && host.startsWith('www.')) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: 'https://vitalguide.life' + uri }
+            }
+        };
+    }
+
     // Handle root
     if (uri === '/') {
         request.uri = '/index.html';
