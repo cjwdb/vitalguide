@@ -333,7 +333,7 @@
 <h2>Get Weekly Wellness Tips</h2>
 <p>Join 50,000+ readers who get our weekly roundup of the best health products, deals, and evidence-based wellness advice.</p>
 <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-<input aria-label="Email address for newsletter" placeholder="your@email.com" required="" type="email"/>
+<label for="newsletter-email" class="visually-hidden">Email address for newsletter</label><input id="newsletter-email" name="email" aria-label="Email address for newsletter" placeholder="your@email.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Subscribe</button>
 </form>
 </div>
