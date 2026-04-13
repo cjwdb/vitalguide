@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+For full architecture details and a complete AWS resource inventory, see **[ARCHITECTURE.md](ARCHITECTURE.md)**.
+
 ## Deployment
 
 **ONLY the Founding Engineer agent may deploy.** All other agents: do NOT run aws s3 sync, aws cloudfront, or any deployment commands. If you need changes deployed, assign a task to the Founding Engineer.
