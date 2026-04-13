@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getArticles } from '@/lib/api';
 import { CATEGORY_SLUGS, SITE_URL } from '@/lib/constants';
 
+export const dynamic = 'force-static';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getArticles();
 
