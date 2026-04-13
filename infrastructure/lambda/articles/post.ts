@@ -22,6 +22,7 @@ export const handler = async (event: any) => {
   const now = new Date().toISOString();
   const item: Article = {
     id: randomUUID(),
+    slug: body.slug || '',
     title: body.title || '',
     sub_title: body.sub_title || '',
     summary: body.summary || '',

@@ -19,6 +19,11 @@ export class ArticlesStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.RETAIN,
     });
 
+    table.addGlobalSecondaryIndex({
+      indexName: 'slug-index',
+      partitionKey: { name: 'slug', type: dynamodb.AttributeType.STRING },
+    });
+
     const basicAuthCredentials =
       this.node.tryGetContext('basicAuthCredentials') ||
       process.env.BASIC_AUTH_CREDENTIALS ||

@@ -35,6 +35,7 @@ export const handler = async (event: any) => {
   const existing_article = unmarshall(existing.Item) as Article;
   const updated: Article = {
     ...existing_article,
+    slug: body.slug ?? existing_article.slug ?? '',
     title: body.title ?? '',
     sub_title: body.sub_title ?? '',
     summary: body.summary ?? '',

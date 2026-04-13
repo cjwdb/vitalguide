@@ -7,7 +7,7 @@ const client = new DynamoDBClient({});
 const TABLE_NAME = process.env.TABLE_NAME!;
 
 const ALLOWED_FIELDS: (keyof ArticleInput)[] = [
-  'title', 'sub_title', 'summary', 'body', 'image_url',
+  'slug', 'title', 'sub_title', 'summary', 'body', 'image_url',
   'categories', 'date', 'time_to_read_in_minutes',
 ];
 

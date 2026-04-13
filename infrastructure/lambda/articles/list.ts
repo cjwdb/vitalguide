@@ -1,4 +1,4 @@
-import { DynamoDBClient, ScanCommand } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, ScanCommand, QueryCommand } from '@aws-sdk/client-dynamodb';
 import { unmarshall, marshall } from '@aws-sdk/util-dynamodb';
 import { checkBasicAuth, unauthorizedResponse } from './auth';
 import { Article } from './types';
@@ -14,6 +14,30 @@ export const handler = async (event: any) => {
   }
 
   const qs = event.queryStringParameters || {};
+  const slug = qs.slug as string | undefined;
+
+  // Slug lookup via GSI — returns a single article
+  if (slug) {
+    const result = await client.send(new QueryCommand({
+      TableName: TABLE_NAME,
+      IndexName: 'slug-index',
+      KeyConditionExpression: 'slug = :slug',
+      ExpressionAttributeValues: marshall({ ':slug': slug }),
+    }));
+
+    const items: Article[] = (result.Items || []).map(item => unmarshall(item) as Article);
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items,
+        count: items.length,
+        nextToken: null,
+      }),
+    };
+  }
+
   const limit = Math.min(parseInt(qs.limit || String(DEFAULT_PAGE_SIZE), 10), MAX_PAGE_SIZE);
   const nextToken = qs.nextToken ? JSON.parse(Buffer.from(qs.nextToken, 'base64').toString('utf-8')) : undefined;
   const category = qs.category as string | undefined;
