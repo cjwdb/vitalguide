@@ -1,6 +1,7 @@
 import { DynamoDBClient, ScanCommand } from '@aws-sdk/client-dynamodb';
 import { unmarshall, marshall } from '@aws-sdk/util-dynamodb';
 import { checkBasicAuth, unauthorizedResponse } from './auth';
+import { Article } from './types';
 
 const client = new DynamoDBClient({});
 const TABLE_NAME = process.env.TABLE_NAME!;
@@ -33,7 +34,7 @@ export const handler = async (event: any) => {
     ExpressionAttributeValues: expressionAttributeValues,
   }));
 
-  const items = (result.Items || []).map(item => unmarshall(item));
+  const items: Article[] = (result.Items || []).map(item => unmarshall(item) as Article);
   const newNextToken = result.LastEvaluatedKey
     ? Buffer.from(JSON.stringify(result.LastEvaluatedKey)).toString('base64')
     : null;

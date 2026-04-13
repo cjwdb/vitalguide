@@ -1,11 +1,12 @@
 import { DynamoDBClient, GetItemCommand, UpdateItemCommand } from '@aws-sdk/client-dynamodb';
 import { marshall, unmarshall } from '@aws-sdk/util-dynamodb';
 import { checkBasicAuth, unauthorizedResponse } from './auth';
+import { Article, ArticleInput } from './types';
 
 const client = new DynamoDBClient({});
 const TABLE_NAME = process.env.TABLE_NAME!;
 
-const ALLOWED_FIELDS = [
+const ALLOWED_FIELDS: (keyof ArticleInput)[] = [
   'title', 'sub_title', 'summary', 'body', 'image_url',
   'categories', 'date', 'time_to_read_in_minutes',
 ];
@@ -29,14 +30,14 @@ export const handler = async (event: any) => {
     return { statusCode: 404, body: JSON.stringify({ error: 'Not found' }) };
   }
 
-  let body: any;
+  let body: Partial<ArticleInput>;
   try {
     body = JSON.parse(event.body || '{}');
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
-  const fields = Object.keys(body).filter(k => ALLOWED_FIELDS.includes(k));
+  const fields = (Object.keys(body) as (keyof ArticleInput)[]).filter(k => ALLOWED_FIELDS.includes(k));
   if (fields.length === 0) {
     return { statusCode: 400, body: JSON.stringify({ error: 'No valid fields to update' }) };
   }
@@ -67,6 +68,6 @@ export const handler = async (event: any) => {
   return {
     statusCode: 200,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(unmarshall(result.Attributes!)),
+    body: JSON.stringify(unmarshall(result.Attributes!) as Article),
   };
 };

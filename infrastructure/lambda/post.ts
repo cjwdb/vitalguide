@@ -2,6 +2,7 @@ import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
 import { marshall } from '@aws-sdk/util-dynamodb';
 import { randomUUID } from 'crypto';
 import { checkBasicAuth, unauthorizedResponse } from './auth';
+import { Product, ProductInput } from './types';
 
 const client = new DynamoDBClient({});
 const TABLE_NAME = process.env.TABLE_NAME!;
@@ -11,16 +12,16 @@ export const handler = async (event: any) => {
     return unauthorizedResponse();
   }
 
-  let body: any;
+  let body: Partial<ProductInput>;
   try {
     body = JSON.parse(event.body || '{}');
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
-  const id = randomUUID();
-  const item = {
-    id,
+  const now = new Date().toISOString();
+  const item: Product = {
+    id: randomUUID(),
     name: body.name || '',
     description: body.description || '',
     affiliate_link: body.affiliate_link || '',
@@ -31,8 +32,8 @@ export const handler = async (event: any) => {
     reviews: body.reviews ?? 0,
     best_rating: body.best_rating ?? 5,
     worst_rating: body.worst_rating ?? 1,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: now,
+    updatedAt: now,
   };
 
   await client.send(new PutItemCommand({

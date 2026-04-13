@@ -1,6 +1,7 @@
 import { DynamoDBClient, PutItemCommand, GetItemCommand } from '@aws-sdk/client-dynamodb';
 import { marshall, unmarshall } from '@aws-sdk/util-dynamodb';
 import { checkBasicAuth, unauthorizedResponse } from './auth';
+import { Product, ProductInput } from './types';
 
 const client = new DynamoDBClient({});
 const TABLE_NAME = process.env.TABLE_NAME!;
@@ -24,15 +25,16 @@ export const handler = async (event: any) => {
     return { statusCode: 404, body: JSON.stringify({ error: 'Not found' }) };
   }
 
-  let body: any;
+  let body: Partial<ProductInput>;
   try {
     body = JSON.parse(event.body || '{}');
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
-  const updated = {
-    ...unmarshall(existing.Item),
+  const existing_product = unmarshall(existing.Item) as Product;
+  const updated: Product = {
+    ...existing_product,
     name: body.name ?? '',
     description: body.description ?? '',
     affiliate_link: body.affiliate_link ?? '',
