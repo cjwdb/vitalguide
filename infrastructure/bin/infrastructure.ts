@@ -3,6 +3,7 @@ import * as cdk from 'aws-cdk-lib';
 import { InfrastructureStack } from '../lib/infrastructure-stack';
 import { ArticlesStack } from '../lib/articles-stack';
 import { ApiDomainStack } from '../lib/api-domain-stack';
+import { GscAnalyticsStack } from '../lib/gsc-analytics-stack';
 
 const app = new cdk.App();
 
@@ -26,4 +27,9 @@ new ApiDomainStack(app, 'VitalguideApiDomainStack', {
   description: 'VitalGuide api.vitalguide.life — ACM cert, custom domain, Route53',
   productsApi: productsStack.api,
   articlesApi: articlesStack.api,
+});
+
+new GscAnalyticsStack(app, 'VitalguideGscAnalyticsStack', {
+  env,
+  description: 'VitalGuide GSC Search Analytics — weekly Lambda pipeline writing reports to S3',
 });
