@@ -2,49 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vitalguide.life/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://vitalguide.life/supplements</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vitalguide.life/fitness</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vitalguide.life/wellness</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vitalguide.life/health-technology</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vitalguide.life/sports-nutrition</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/sleep</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/mental-wellness</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -79,356 +67,236 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/</loc>
+    <loc>https://vitalguide.life/articles/index.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/apigenin-sleep-longevity</loc>
+    <loc>https://vitalguide.life/articles/apigenin-sleep-longevity.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/l-citrulline-performance</loc>
+    <loc>https://vitalguide.life/articles/l-citrulline-performance.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/acupressure-mat-guide</loc>
+    <loc>https://vitalguide.life/articles/acupressure-mat-guide.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/best-adjustable-dumbbells</loc>
+    <loc>https://vitalguide.life/articles/best-adjustable-dumbbells.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/best-sleep-trackers</loc>
+    <loc>https://vitalguide.life/articles/best-sleep-trackers.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/urolithin-a-supplements</loc>
+    <loc>https://vitalguide.life/articles/urolithin-a-supplements.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/ashwagandha-stress</loc>
+    <loc>https://vitalguide.life/articles/ashwagandha-stress.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/berberine-glp1</loc>
+    <loc>https://vitalguide.life/articles/berberine-glp1.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/cgm-guide</loc>
+    <loc>https://vitalguide.life/articles/cgm-guide.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/cold-plunge-guide</loc>
+    <loc>https://vitalguide.life/articles/cold-plunge-guide.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/collagen-peptides</loc>
+    <loc>https://vitalguide.life/articles/collagen-peptides.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/colostrum-supplements</loc>
+    <loc>https://vitalguide.life/articles/colostrum-supplements.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/creatine-brain-health</loc>
+    <loc>https://vitalguide.life/articles/creatine-brain-health.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/electrolyte-supplements</loc>
+    <loc>https://vitalguide.life/articles/electrolyte-supplements.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/gut-health-probiotics</loc>
+    <loc>https://vitalguide.life/articles/gut-health-probiotics.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/home-gym-guide</loc>
+    <loc>https://vitalguide.life/articles/home-gym-guide.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/immune-support</loc>
+    <loc>https://vitalguide.life/articles/immune-support.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/improve-sleep</loc>
+    <loc>https://vitalguide.life/articles/improve-sleep.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/lions-mane-mushroom</loc>
+    <loc>https://vitalguide.life/articles/lions-mane-mushroom.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/longevity-supplements</loc>
+    <loc>https://vitalguide.life/articles/longevity-supplements.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/magnesium-guide</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://vitalguide.life/articles/magnesium-guide.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/mindfulness-guide</loc>
+    <loc>https://vitalguide.life/articles/mindfulness-guide.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/mouth-taping-sleep</loc>
+    <loc>https://vitalguide.life/articles/mouth-taping-sleep.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/nmn-nad-supplements</loc>
+    <loc>https://vitalguide.life/articles/nmn-nad-supplements.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/omega-3-fish-oil</loc>
+    <loc>https://vitalguide.life/articles/omega-3-fish-oil.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/red-light-therapy</loc>
+    <loc>https://vitalguide.life/articles/red-light-therapy.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/rhodiola-rosea</loc>
+    <loc>https://vitalguide.life/articles/rhodiola-rosea.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/sauna-benefits</loc>
+    <loc>https://vitalguide.life/articles/sauna-benefits.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/shilajit-benefits</loc>
+    <loc>https://vitalguide.life/articles/shilajit-benefits.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/taurine-benefits</loc>
+    <loc>https://vitalguide.life/articles/taurine-benefits.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/testosterone-optimization</loc>
+    <loc>https://vitalguide.life/articles/testosterone-optimization.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/vitamin-d3-k2</loc>
+    <loc>https://vitalguide.life/articles/vitamin-d3-k2.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/zone-2-cardio</loc>
+    <loc>https://vitalguide.life/articles/zone-2-cardio.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/best-magnesium-sleep</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/best-protein-powder</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/best-creatine-monohydrate</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/best-vitamin-d-supplement</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/best-multivitamin-men</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/beta-alanine-performance</loc>
+    <loc>https://vitalguide.life/articles/best-creatine-monohydrate.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/breathwork-anxiety</loc>
+    <loc>https://vitalguide.life/articles/best-vitamin-d-supplement.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/chronotype-sleep-optimization</loc>
+    <loc>https://vitalguide.life/articles/best-multivitamin-men.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/oura-vs-whoop-comparison</loc>
+    <loc>https://vitalguide.life/articles/best-magnesium-sleep.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitalguide.life/articles/rucking-benefits</loc>
+    <loc>https://vitalguide.life/articles/best-protein-powder.html</loc>
     <lastmod>2026-04-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/strength-training-for-women</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/caffeine-athletic-performance</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/dopamine-detox-guide</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/intermittent-fasting</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/post-workout-recovery</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/sleep-debt-recovery</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/smart-scales-guide</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/spermidine-supplements</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/tongkat-ali-benefits</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/vo2-max-training</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/phosphatidylserine-brain-health</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/glycine-supplement</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/earthing-grounding-benefits</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/blue-light-glasses</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vitalguide.life/articles/based-bodyworks-review</loc>
-    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
