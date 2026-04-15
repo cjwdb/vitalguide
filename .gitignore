@@ -1,0 +1,17 @@
+# GSC credentials (never commit)
+scripts/credentials.json
+scripts/*.json
+
+# Generated reports
+scripts/reports/
+
+# macOS
+.DS_Store
+
+# Node/CDK
+node_modules/
+cdk.out/
+
+# Next.js build artifacts (contain stale/broken links — never deploy)
+web/out/
+web/.next/

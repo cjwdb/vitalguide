@@ -10,8 +10,8 @@ For full architecture details and a complete AWS resource inventory, see **[ARCH
 
 **Deploy to production** (S3 + CloudFront) — Founding Engineer only:
 ```bash
-# Upload files to S3 (always exclude .claude/ and content/)
-aws s3 sync . s3://vitalguide --delete --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*"
+# Upload files to S3 (always exclude .claude/, content/, and web/ build artifacts)
+aws s3 sync . s3://vitalguide --delete --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*" --exclude "web/*"
 
 # Invalidate CloudFront cache after changes
 aws cloudfront create-invalidation --distribution-id E2Z7FA0QPJODC7 --paths "/*"
