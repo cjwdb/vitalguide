@@ -8,6 +8,13 @@ scripts/reports/
 # macOS
 .DS_Store
 
+# Editor backup files
+*.bak
+*.bak2
+*.bak3
+*.bak4
+*.bak*
+
 # Node/CDK
 node_modules/
 cdk.out/
