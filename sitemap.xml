@@ -462,4 +462,34 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://vitalguide.life/articles/lithium-orotate-guide</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/rucking-guide</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/sodium-bicarbonate-performance</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/forest-bathing-guide</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitalguide.life/articles/wearable-blood-pressure-monitors</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
