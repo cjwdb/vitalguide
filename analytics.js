@@ -8,25 +8,14 @@
   // Derive page category from the URL path, e.g. /supplements → "supplements"
   function getCategory() {
     var path = window.location.pathname;
-    if (path.includes('/supplements'))     return 'supplements';
-    if (path.includes('/fitness'))         return 'fitness';
-    if (path.includes('/sports-nutrition')) return 'sports-nutrition';
-    if (path.includes('/wellness'))        return 'wellness';
-    if (path.includes('/health-technology')) return 'health-technology';
-    if (path.includes('/sleep'))           return 'sleep';
+    if (path.includes('/supplements')) return 'supplements';
+    if (path.includes('/fitness'))     return 'fitness';
+    if (path.includes('/sleep'))       return 'sleep';
     if (path.includes('/mental-wellness')) return 'mental-wellness';
     if (path.includes('/immune-support'))  return 'supplements';
     if (path.includes('/improve-sleep'))   return 'sleep';
     if (path.includes('/home-gym-guide'))  return 'fitness';
     if (path.includes('/mindfulness-guide')) return 'mental-wellness';
-    if (path.includes('/gut-health'))      return 'wellness';
-    if (path.includes('/cold-plunge'))     return 'wellness';
-    if (path.includes('/sauna'))           return 'wellness';
-    if (path.includes('/cgm-guide'))       return 'health-technology';
-    if (path.includes('/red-light-therapy')) return 'health-technology';
-    if (path.includes('/best-creatine'))   return 'sports-nutrition';
-    if (path.includes('/best-protein'))    return 'sports-nutrition';
-    if (path.includes('/electrolyte'))     return 'sports-nutrition';
     return 'general';
   }
 
