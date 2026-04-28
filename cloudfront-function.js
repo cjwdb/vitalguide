@@ -15,14 +15,18 @@ function handler(event) {
     var request = event.request;
     var uri = request.uri;
 
-    // 301-redirect www to non-www
+    // 301-redirect www to non-www (also strip .html to avoid double redirect chain)
     var host = request.headers && request.headers.host && request.headers.host.value;
     if (host && host.startsWith('www.')) {
+        var target = uri;
+        if (target.endsWith('.html') && KEEP_HTML.indexOf(target) === -1) {
+            target = target.slice(0, -5);
+        }
         return {
             statusCode: 301,
             statusDescription: 'Moved Permanently',
             headers: {
-                location: { value: 'https://vitalguide.life' + uri }
+                location: { value: 'https://vitalguide.life' + target }
             }
         };
     }
