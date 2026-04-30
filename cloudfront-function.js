@@ -11,6 +11,18 @@ var DIRECTORY_PATHS = [
     '/articles'
 ];
 
+// Old article slugs that were renamed — 301 redirect to canonical URL
+var SLUG_REDIRECTS = {
+    '/articles/beta-alanine-performance': '/articles/beta-alanine-guide',
+    '/articles/breathwork-anxiety': '/articles/breathwork-guide',
+    '/articles/chronotype-sleep-optimization': '/articles/circadian-rhythm-guide',
+    '/articles/dopamine-detox-guide': '/articles/digital-detox-guide',
+    '/articles/oura-vs-whoop-comparison': '/articles/smart-ring-guide',
+    '/articles/rucking-benefits': '/articles/rucking-guide',
+    '/articles/sleep-debt-recovery': '/articles/sleep-stack-guide',
+    '/articles/tongkat-ali-benefits': '/articles/tongkat-ali-guide'
+};
+
 function handler(event) {
     var request = event.request;
     var uri = request.uri;
@@ -27,6 +39,17 @@ function handler(event) {
             statusDescription: 'Moved Permanently',
             headers: {
                 location: { value: 'https://vitalguide.life' + target }
+            }
+        };
+    }
+
+    // 301-redirect old article slugs to their canonical replacements
+    if (SLUG_REDIRECTS[uri]) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: 'https://vitalguide.life' + SLUG_REDIRECTS[uri] }
             }
         };
     }
