@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Page Not Found — VitalGuide</title>
+<meta name="robots" content="noindex"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 48px 24px;
+}
+.error-code {
+    font-family: 'Playfair Display', serif;
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 0;
+    line-height: 1;
+}
+.error-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin: 16px 0 12px;
+    color: var(--dark);
+}
+.error-message {
+    font-size: 17px;
+    color: #666;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+}
+.error-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+</style>
+</head>
+<body>
+<div class="disclosure-bar">
+    ⚡ As an Amazon Associate, VitalGuide earns from qualifying purchases. This helps us keep the site free.
+</div>
+<nav class="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="index">
+<div class="nav-logo-icon">🌿</div>
+<span class="nav-logo-text">Vital<span>Guide</span></span>
+</a>
+<ul class="nav-links">
+<li><a href="index">Home</a></li>
+<li><a href="supplements">Supplements</a></li>
+<li><a href="fitness">Fitness</a></li>
+<li><a href="sports-nutrition">Sports Nutrition</a></li>
+<li><a href="wellness">Wellness</a></li>
+<li><a href="health-technology">Health Tech</a></li>
+<li><a class="nav-cta" href="articles/index">Articles</a></li>
+</ul>
+</div>
+</nav>
+<main>
+<div class="error-page">
+    <p class="error-code">404</p>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-message">Sorry, the page you're looking for doesn't exist or has been moved. Try browsing our categories or searching for what you need.</p>
+    <div class="error-actions">
+        <a class="btn btn-primary" href="index">Go Home</a>
+        <a class="btn btn-outline" href="articles/index">Browse Articles</a>
+    </div>
+</div>
+</main>
+</body>
+</html>
