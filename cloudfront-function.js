@@ -11,6 +11,24 @@ var DIRECTORY_PATHS = [
     '/articles'
 ];
 
+// Known root-level pages (without .html extension)
+var ROOT_PAGES = [
+    '/fitness',
+    '/health-tech',
+    '/health-technology',
+    '/mental-wellness',
+    '/sleep',
+    '/sports-nutrition',
+    '/supplements',
+    '/wellness',
+    '/about',
+    '/privacy-policy',
+    '/affiliate-disclosure',
+    '/how-we-review',
+    '/contact',
+    '/404'
+];
+
 // Old article slugs that were renamed — 301 redirect to canonical URL
 var SLUG_REDIRECTS = {
     '/articles/beta-alanine-performance': '/articles/beta-alanine-guide',
@@ -84,9 +102,20 @@ function handler(event) {
         };
     }
 
-    // If no extension, append .html
+    // If no extension, resolve to .html file
     if (!uri.includes('.')) {
-        request.uri = uri + '.html';
+        // URIs already under /articles/ stay as-is
+        if (uri.startsWith('/articles/')) {
+            request.uri = uri + '.html';
+        }
+        // Known root-level pages resolve at root
+        else if (ROOT_PAGES.indexOf(uri) !== -1) {
+            request.uri = uri + '.html';
+        }
+        // Everything else is an article shortcut URL — rewrite to /articles/
+        else {
+            request.uri = '/articles' + uri + '.html';
+        }
     }
 
     return request;
