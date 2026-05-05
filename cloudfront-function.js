@@ -104,8 +104,8 @@ function handler(event) {
 
     // If no extension, resolve to .html file
     if (!uri.includes('.')) {
-        // URIs already under /articles/ stay as-is
-        if (uri.startsWith('/articles/')) {
+        // URIs under /articles/ or /authors/ resolve in-place
+        if (uri.startsWith('/articles/') || uri.startsWith('/authors/')) {
             request.uri = uri + '.html';
         }
         // Known root-level pages resolve at root
