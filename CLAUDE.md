@@ -47,3 +47,9 @@ This is a **pure static HTML/CSS site** — no build system, no package manager,
 **Article structured data** (`application/ld+json`) is included on both category pages and article pages (both use `@type: Article` + `BreadcrumbList`).
 
 **Newsletter form** uses `onsubmit="event.preventDefault(); alert('Thanks for subscribing!');"` — there is no backend integration.
+
+## New Article Checklist
+
+When creating a new article HTML file in `articles/`, you **must** also update these files in the same change:
+1. **`articles/index.html`** — add a `<a class="blog-post">` entry and update the sidebar category counts.
+2. **`sitemap.xml`** — add a `<url>` entry with the article's URL, today's date as `<lastmod>`, `<changefreq>monthly</changefreq>`, and `<priority>0.7</priority>`.
