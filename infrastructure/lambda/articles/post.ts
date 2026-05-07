@@ -18,10 +18,18 @@ export const handler = async (event: any) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
+  const title = body.title || '';
+  const slug = body.slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  if (!slug) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'title or slug is required' }) };
+  }
+
   const id = randomUUID();
   const item = {
     id,
-    title: body.title || '',
+    slug,
+    title,
     sub_title: body.sub_title || '',
     summary: body.summary || '',
     body: body.body || '',
