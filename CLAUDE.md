@@ -10,11 +10,20 @@ For full architecture details and a complete AWS resource inventory, see **[ARCH
 
 **Deploy to production** (S3 + CloudFront) — Founding Engineer only:
 ```bash
-# Upload files to S3 (always exclude .claude/, content/, and web/ build artifacts)
-aws s3 sync . s3://vitalguide --delete --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*" --exclude "web/*"
+# Step 1: Sync DOWN from S3 first to pick up any files added by other agents
+aws s3 sync s3://vitalguide . --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*" --exclude "web/*" --exclude ".git/*"
 
-# Invalidate CloudFront cache after changes
+# Step 2: Upload files to S3 (add/update only — never deletes remote files)
+aws s3 sync . s3://vitalguide --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*" --exclude "web/*" --exclude ".git/*" --exclude "ARCHITECTURE.md"
+
+# Step 3: Invalidate CloudFront cache after changes
 aws cloudfront create-invalidation --distribution-id E2Z7FA0QPJODC7 --paths "/*"
+```
+
+**Clean deploy** (removes orphaned S3 files — use only when intentionally deleting content):
+```bash
+# DANGER: This deletes any S3 file not present locally. Only use after syncing down first.
+aws s3 sync . s3://vitalguide --delete --exclude ".claude/*" --exclude "CLAUDE.md" --exclude "content/*" --exclude "web/*" --exclude ".git/*" --exclude "ARCHITECTURE.md"
 ```
 
 The site is live at **https://vitalguide.life** via:
