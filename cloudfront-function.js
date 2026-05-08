@@ -35,7 +35,6 @@ var SLUG_REDIRECTS = {
     '/articles/breathwork-anxiety': '/articles/breathwork-guide',
     '/articles/chronotype-sleep-optimization': '/articles/circadian-rhythm-guide',
     '/articles/dopamine-detox-guide': '/articles/digital-detox-guide',
-    '/articles/oura-vs-whoop-comparison': '/articles/smart-ring-guide',
     '/articles/rucking-benefits': '/articles/rucking-guide',
     '/articles/sleep-debt-recovery': '/articles/sleep-stack-guide',
     '/articles/tongkat-ali-benefits': '/articles/tongkat-ali-guide'
