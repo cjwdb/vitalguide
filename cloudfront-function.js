@@ -71,15 +71,44 @@ function handler(event) {
         };
     }
 
+    // 301-redirect /index and /index.html to / (root canonical)
+    if (uri === '/index' || uri === '/index.html') {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: '/' }
+            }
+        };
+    }
+
+    // 301-redirect /foo/index and /foo/index.html to /foo (directory canonical)
+    if (uri.endsWith('/index') || uri.endsWith('/index.html')) {
+        var dirPath = uri.replace(/\/index(\.html)?$/, '');
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: dirPath || '/' }
+            }
+        };
+    }
+
+    // 301-redirect trailing slash to non-trailing (except root /)
+    // e.g. /articles/ → /articles
+    if (uri.length > 1 && uri.endsWith('/')) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                location: { value: uri.slice(0, -1) }
+            }
+        };
+    }
+
     // Handle root
     if (uri === '/') {
         request.uri = '/index.html';
-        return request;
-    }
-
-    // Handle directory-style URLs with trailing slash (e.g. /articles/)
-    if (uri.endsWith('/')) {
-        request.uri = uri + 'index.html';
         return request;
     }
 
